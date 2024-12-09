@@ -1,101 +1,61 @@
-import Image from "next/image";
+import ProductCard from "@/components/product-card/ProductCard";
+import ProductDetail from "@/components/product/ProductDetail";
+import React from "react";
+import chessa from "@/public/images/product/Location Cheese big picture 1.png";
+import table from "@/public/images/product/Table ronde 165cm Festi 2.png";
+import table_transparent from "@/public/images/product/Table_ronde_165cm_Festi_1-removebg-preview.png";
+import Carousel from "@/components/carousel/Carousel";
+import ServicesPage from "@/components/service-page/ServicePage";
+import Collection from "@/components/collections/Collection";
+const images = [
+  "<https://via.placeholder.com/800x400.png?text=Slide+1>",
 
-export default function Home() {
+  "<https://via.placeholder.com/800x400.png?text=Slide+2>",
+  "<https://via.placeholder.com/800x400.png?text=Slide+3>",
+];
+const page: React.FC = () => {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+    <div>
+      <ProductDetail
+        description="Festi vous propose à la location un/une 'Jewel – grand couteau/10pc' pour votre évenement et ce dès 0,35 € / pièce (HTVA). Que ce soit pour votre mariage, une fête d'anniversaire ou du personnel, ce produit a fait l'objet d'une sélection rigoureuse par notre équipe. Il est en location chez nous sous la référence 'VAJGC'. Nous sommes à votre disposition pour que les événements de nos clients, même en last-minute, soient toujours une réussite. Vous pourrez trouver tout une série d'autre produit à louer de ce type dans la catégorie 'Art de la Table'."
+        title="Cheese - appareil à raclette 1/2 roue"
+        price="39,50€"
+        unit="pièce"
+        reference="VAGON5"
+        dimensions={{ width: 20, height: 50 }}
+        features={[
+          "Location appareil à raclette - Raclette traditionnelle 1/2 roue",
+          "Réglable en hauteur",
+          "Appareil à raclette professionnel",
+          "Boîtier de chauffe horizontal réglable en hauteur",
+        ]}
+        specifications={{ Voltage: "220V", Power: "900W" }}
+        mainImage={chessa}
+        additionalImages={[table, table, table, table]}
+        accordionItems={[
+          { title: "Livraisons", content: "Information de livraison..." },
+          {
+            title: "Questions",
+            content:
+              "Festi vous propose à la location un/une 'Jewel - grand couteau/10pc'...",
+          },
+        ]}
+      />
+      <Carousel />
+      <Collection />
+      <ServicesPage />
+      {/* <ProductCard
+        title="Round Table"
+        price="0€"
+        unitPrice="0.35€/Pièce"
+        reference="VABGN5"
+        pieces={20}
+        imageSrc={table_transparent}
+        category="ART DE LA TABLE"
+        isFavorite={false}
+      /> */}
     </div>
   );
-}
+};
+
+export default page;
