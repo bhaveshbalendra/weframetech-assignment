@@ -1,13 +1,14 @@
-// import { Mail } from "lucide-react";
 "use client";
 import Image from "next/image";
-import { useState } from "react";
+import sopha from "@/public/images/service/BUFFET_037 1.webp";
+import helper from "@/public/images/service/helper.webp";
+import dish from "@/public/images/service/dish.webp";
+import computer from "@/public/images/service/computer.webp";
+import truck from "@/public/images/service/truck.webp";
 
-export default function ServicesPage() {
-  const [email, setEmail] = useState("");
-
+const ServicesPage: React.FC = () => {
   return (
-    <div className="bg-white">
+    <div className="bg-gradient-to-b from-[#fef7fb] to-[#FFFFFF]">
       {/* Header Section */}
       <header className="container mx-auto px-4 py-12 text-center">
         <h1 className="text-3xl md:text-4xl font-medium">
@@ -19,36 +20,44 @@ export default function ServicesPage() {
       </header>
 
       {/* Services Section */}
-      <div className="container mx-auto px-4 py-8">
+      <div className="max-w-[928px] mx-auto px-4 py-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {[
             {
               title: "Livraison & Reprise",
               subtitle: "Selon vos besoins",
-              icon: "🚚",
+              icon: helper,
             },
             {
               title: "Nettoyage",
               subtitle: "Selon vos besoins",
-              icon: "🧹",
+              icon: dish,
             },
             {
               title: "Commande illimitée",
               subtitle: "Tout est possible",
-              icon: "🛒",
+              icon: computer,
             },
             {
               title: "Transport & Enlèvement",
               subtitle: "On s'occupe de tout",
-              icon: "🚛",
+              icon: truck,
             },
-          ].map((service) => (
-            <div key={service.title} className="text-center">
-              <div className="text-4xl mb-4" aria-label={service.title}>
-                {service.icon}
+          ].map((service, index) => (
+            <div key={service.title} className="relative text-center">
+              <div
+                className="text-4xl flex justify-center"
+                aria-label={service.title}
+              >
+                <Image src={service.icon} alt={service.title} />
               </div>
-              <h3 className="font-medium mb-2">{service.title}</h3>
-              <p className="text-sm text-gray-500">{service.subtitle}</p>
+              <h3 className="text-[20px] p-[13px]">{service.title}</h3>
+              <p className="text-gray-500 text-[14px]">{service.subtitle}</p>
+              {index !== 3 && (
+                <div className="hr-lines after:content-[''] hidden md:block after:h-[2px] md:after:w-[100px] lg:after:w-[130px] after:bg-[#454545] after:block after:absolute after:top-[15%] after:-right-20"></div>
+              )}
+              {/* Line with absolute positioning */}
+              {/* <div className="absolute left-0 right-0 border-b-2 top-[80%] mx-4"></div> */}
             </div>
           ))}
         </div>
@@ -58,18 +67,18 @@ export default function ServicesPage() {
       <div className="container mx-auto px-4 py-12">
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div className="bg-[#f4f4f4] rounded-lg overflow-hidden">
-            {/* <Image
-              src="/images/sofa.jpg" // Replace with your valid image path
+            <Image
+              src={sopha} // Replace with your valid image path
               alt="Green sofa with coffee table"
               width={800}
               height={400}
               className="w-full h-auto object-cover"
-            /> */}
+            />
           </div>
-          <div className="bg-[#FFF5F7] p-8 rounded-lg">
+          <div className="bg-[#FFF5F7] p-14 rounded-lg">
             <h2 className="text-2xl md:text-3xl font-medium mb-4">
-              S&apos;inscrire & économiser{" "}
-              <span className="text-[#40E0D0]">10%</span>
+              S&apos;inscrire & économiser
+              <span className="text-[#40E0D0]"> 10%</span>
             </h2>
             <p className="text-gray-600 mb-6">
               Office ipsum you must be muted. Synergize helicopter prioritize
@@ -78,24 +87,13 @@ export default function ServicesPage() {
               corporate nail caught synergy highlights lunch. Company another
               pushback items dear or any.
             </p>
-            <div className="flex gap-4">
-              {/* <input
-                type="email"
+            <div className="flex gap-4 flex-wrap">
+              <input
+                type="text"
                 placeholder="john@doe.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="flex-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#40E0D0]"
-              /> */}
-              <button
-                className="bg-[#40E0D0] hover:bg-[#3BC9C9] px-6 py-2 text-white rounded-md"
-                onClick={() => {
-                  if (email) {
-                    alert(`Thank you for subscribing, ${email}!`);
-                  } else {
-                    alert("Please enter a valid email address.");
-                  }
-                }}
-              >
+                className="flex-grow p-2 border rounded-md"
+              />
+              <button className="bg-[#40E0D0] hover:bg-[#3BC9C9] px-6 py-2 text-white rounded-md">
                 S&apos;INSCRIRE
               </button>
             </div>
@@ -104,4 +102,6 @@ export default function ServicesPage() {
       </div>
     </div>
   );
-}
+};
+
+export default ServicesPage;

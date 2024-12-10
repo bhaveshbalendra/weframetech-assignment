@@ -1,18 +1,18 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import logo from "@/public/svgs/headers/logo.svg";
 import lightbulb from "@/public/svgs/headers/lightbulb-01.svg";
 import heart from "@/public/svgs/heart.svg";
 import cart from "@/public/svgs/headers/cart.svg";
+import cart2 from "@/public/svgs/headers/cart2.svg";
 import avatar from "@/public/svgs/headers/Avatar.svg";
-import down from "@/public/svgs/headers/chevron-down.svg";
-import { useState } from "react";
 import menuIcon from "@/public/svgs/headers/menu.svg";
 import closeIcon from "@/public/svgs/headers/close.svg";
-
-import Search from "./ui/Search";
-import NavButton from "./ui/NavButton";
+import Search from "@/components/ui/Search";
+import down from "@/public/svgs/headers/chevron-down.svg";
+import NavButton from "@/components/ui/NavButton";
+import Link from "next/link";
 
 const navItems = [
   "ART DE LA TABLE",
@@ -31,24 +31,20 @@ const navItems = [
 
 const Header: React.FC = () => {
   const [isLeftDrawerOpen, setIsLeftDrawerOpen] = useState(false);
+
   return (
-    <header className=" h-auto p-10 lg:p-0 lg:h-[168px] border-b border-gray-200 text-[14px] bg-white">
+    <header className="h-auto p-10 lg:p-0 lg:h-[168px] border-b border-gray-200 text-[14px] bg-white">
+      {/* Desktop Header */}
       <div className="lg:block hidden">
-        <div className="flex flex-col h-full ">
+        <div className="flex flex-col h-full">
           {/* Top Navigation */}
           <nav className="flex justify-between items-center h-[112px] px-8">
-            {/* Left Section */}
-            <div className="flex items-center gap-6 flex-1 ">
-              {/* Logo */}
+            <div className="flex items-center gap-6 flex-1">
               <Image src={logo} height={65} alt="Weframetech logo" />
-
-              {/* Search */}
               <div className="flex-grow">
                 <Search />
               </div>
             </div>
-
-            {/* Right Section */}
             <div className="flex items-center gap-[6px] ml-4">
               <NavButton className="text-[#3B4347]">
                 <Image
@@ -59,68 +55,62 @@ const Header: React.FC = () => {
                 />
                 <span className="ml-2">Inspiration</span>
               </NavButton>
-
-              <NavButton className="flex p-[10px] text-[#3B4347] items-center gap-x-2">
-                {/* Icon */}
+              <NavButton className="flex p-[14px] text-[#3B4347] items-center gap-x-2">
                 <Image src={heart} width={20} height={20} alt="Heart icon" />
-
-                {/* Text and Count */}
                 <span>Mes favoris</span>
                 <span className="bg-[#CAD2D5] text-[#242D30] text-[10px] flex justify-center items-center h-[18px] w-[28px] rounded-full">
                   24
                 </span>
               </NavButton>
-
-              <NavButton className="bg-[#0093D0] py-[10px] px-[16px] text-white rounded-[6px]">
+              <NavButton className="bg-[#0093D0] py-[13px] px-[18px] text-white rounded-[6px]">
                 <Image src={cart} width={20} height={20} alt="Cart" />
                 <span className="ml-2">Panier</span>
               </NavButton>
-
-              <NavButton className="ml-[19px]">
+              <NavButton className="ml-[19px] ">
                 <Image src={avatar} width={44} height={44} alt="User Avatar" />
               </NavButton>
-
-              <NavButton className="text-[#1F2A37] ml-[8px]">
-                <span className="mr-[8px]">FR</span>
-                <Image src={down} width={10} height={10} alt="Dropdown" />
+              <NavButton className="ml-2">
+                <span className="mr-2">FR</span>
+                <Image src={down} width={16} height={16} alt="Dropdown" />
               </NavButton>
             </div>
           </nav>
-
           {/* Bottom Navigation */}
-          <nav className="h-[56px] hidden xl:block ">
+          <nav className="h-[56px] hidden xl:block">
             <ul className="flex justify-between max-w-[1537px] mx-auto px-4 sm:px-6 lg:px-8 overflow-x-auto items-center h-full">
               {navItems.map((item, index) => (
                 <li key={index}>
-                  <a
+                  <Link
                     href="#"
-                    className="font-medium text-gray-500 hover:text-gray-900 whitespace-nowrap"
+                    className={`font-medium text-gray-500 hover:text-gray-900 whitespace-nowrap ${
+                      index === 0 ? "text-[#0093D0] " : ""
+                    }`}
                   >
                     {item}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
           </nav>
         </div>
       </div>
-      <nav className="block lg:hidden h-auto  bg-white">
+
+      {/* Mobile Header */}
+      <nav className="block lg:hidden h-auto w-full bg-white">
         <div className="relative flex items-center h-full">
-          {/* Menu Button */}
           <button
             onClick={() => setIsLeftDrawerOpen(!isLeftDrawerOpen)}
-            className="absolute left-4"
+            className="absolute  z-50"
           >
             <Image alt="menu icon" src={menuIcon} width={24} height={24} />
           </button>
-
-          {/* Centered Logo */}
           <div className="absolute inset-x-0 flex justify-center">
             <Image alt="logo" src={logo} width={120} height={40} />
           </div>
         </div>
       </nav>
 
+      {/* Left Drawer */}
       {isLeftDrawerOpen && (
         <div className="fixed inset-0 bg-gray-800 bg-opacity-50 z-50">
           <div className="fixed inset-y-0 left-0 w-3/4 max-w-sm bg-white p-4">
@@ -131,12 +121,12 @@ const Header: React.FC = () => {
               <ul className="space-y-4">
                 {navItems.map((item, index) => (
                   <li key={index}>
-                    <a
+                    <Link
                       href="#"
                       className="font-medium text-gray-500 hover:text-gray-900"
                     >
                       {item}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -144,6 +134,28 @@ const Header: React.FC = () => {
           </div>
         </div>
       )}
+
+      {/* Mobile Bottom Navigation */}
+      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-300 lg:hidden z-50">
+        <div className="flex justify-around py-2">
+          <button className="flex flex-col items-center text-gray-600">
+            <Image src={lightbulb} width={24} height={24} alt="Inspiration" />
+            <span className="text-xs">Inspiration</span>
+          </button>
+          <button className="flex flex-col items-center text-gray-600">
+            <Image src={heart} width={24} height={24} alt="Favorites" />
+            <span className="text-xs">Favoris</span>
+          </button>
+          <button className="flex flex-col items-center text-gray-600">
+            <Image src={cart2} width={24} height={24} alt="Cart" />
+            <span className="text-xs">Panier</span>
+          </button>
+          <button className="flex flex-col items-center text-gray-600">
+            <Image src={avatar} width={24} height={24} alt="Profile" />
+            <span className="text-xs">Profil</span>
+          </button>
+        </div>
+      </div>
     </header>
   );
 };
