@@ -13,7 +13,7 @@ const page: React.FC = () => {
       {/* Breadcrumb Section */}
       <p className="text-sm lg:text-base py-4 ml-[32px] lg:ml-[64px] ">
         <span className="font-medium">Home</span>
-        <span className="text-[#D3D3D3]"> • Art de la table</span>
+        <span className="text-[#9c9c9c]"> • Art de la table</span>
       </p>
       {/* Product Detail Section */}
       <ProductDetailsPage

@@ -91,7 +91,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({
             </div>
             <p className="text-xl lg:text-2xl font-medium mb-4 lg:mb-6">
               {price}
-              <span className="text-sm lg:text-base text-[#D3D3D3] ml-2">
+              <span className="text-sm lg:text-base text-[#9c9c9c] ml-2">
                 /{unit}
               </span>
             </p>
@@ -112,9 +112,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({
                   </span>
                 </div>
               </div>
-              <p className="text-sm lg:text-base text-gray-500">
-                RÉF : {reference}
-              </p>
+              <p className="text-[14px] text-gray-500">RÉF : {reference}</p>
             </div>
             <Card>
               {features.map((feature, index) => (
@@ -123,9 +121,9 @@ const ProductDetail: React.FC<ProductDetailProps> = ({
                 </p>
               ))}
               <div className="mt-4">
-                {Object.entries(specifications).map(([key, value], index) => (
-                  <div key={index} className="text-sm lg:text-base">
-                    <strong>{key}:</strong> {value}
+                {Object.entries(specifications).map(([, value], index) => (
+                  <div key={index} className="text-[14px] ">
+                    {value}
                   </div>
                 ))}
               </div>
@@ -161,8 +159,8 @@ const ProductDetail: React.FC<ProductDetailProps> = ({
       {/* Additional Info Section */}
       <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
         <div className="flex-1">
-          <h3 className="text-lg lg:text-xl mb-4">Description produit</h3>
-          <p className="text-sm lg:text-base text-[#D3D3D3]">{description}</p>
+          <h2 className="text-lg lg:text-xl mb-4">Description produit</h2>
+          <p className="text-[] text-[#818181]">{description}</p>
         </div>
         <div className="flex-1">
           <Accordion>

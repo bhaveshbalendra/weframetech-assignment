@@ -51,7 +51,7 @@ const ServicesPage: React.FC = () => {
               >
                 <Image src={service.icon} alt={service.title} />
               </div>
-              <h3 className="text-[20px] p-[13px]">{service.title}</h3>
+              <p className="text-[20px] p-[13px]">{service.title}</p>
               <p className="text-gray-500 text-[14px]">{service.subtitle}</p>
               {index !== 3 && (
                 <div className="hr-lines after:content-[''] hidden md:block after:h-[2px] md:after:w-[100px] lg:after:w-[130px] after:bg-[#454545] after:block after:absolute after:top-[15%] after:-right-20"></div>
@@ -78,9 +78,9 @@ const ServicesPage: React.FC = () => {
           <div className="bg-[#FFF5F7] p-14 rounded-lg">
             <h2 className="text-2xl md:text-3xl font-medium mb-4">
               S&apos;inscrire & économiser
-              <span className="text-[#40E0D0]"> 10%</span>
+              <span className="text-[#62d4de]"> 10%</span>
             </h2>
-            <p className="text-gray-600 mb-6">
+            <p className=" text-[#9c9c9c] font-normal  mb-6">
               Office ipsum you must be muted. Synergize helicopter prioritize
               anyway job due harvest meat opportunity didn&apos;t. Yet busy any
               meeting shark light marginalised 4-blocker message. Productize
@@ -93,7 +93,7 @@ const ServicesPage: React.FC = () => {
                 placeholder="john@doe.com"
                 className="flex-grow p-2 border rounded-md"
               />
-              <button className="bg-[#40E0D0] hover:bg-[#3BC9C9] px-6 py-2 text-white rounded-md">
+              <button className="bg-[#62d4de] hover:bg-[#62d4de] px-6 py-2 text-white rounded-md">
                 S&apos;INSCRIRE
               </button>
             </div>

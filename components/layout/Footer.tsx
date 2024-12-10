@@ -83,21 +83,21 @@ const Footer: React.FC = () => {
                 href="#"
                 className="text-muted-foreground hover:text-primary h-[42px]"
               >
-                <Image src={twitter} alt="twitter" />
+                <Image src={twitter} alt="twitter logo" />
                 <span className="sr-only">Twitter</span>
               </Link>
               <Link
                 href="#"
                 className="text-muted-foreground hover:text-primary h-[42px]"
               >
-                <Image src={instagram} alt="instagram" />
+                <Image src={instagram} alt="instagram logo" />
                 <span className="sr-only">Instagram</span>
               </Link>
               <Link
                 href="#"
                 className="text-muted-foreground hover:text-primary h-[42px]"
               >
-                <Image src={linkedin} alt="linkedin" />
+                <Image src={linkedin} alt="linkedin logo" />
                 <span className="sr-only">LinkedIn</span>
               </Link>
             </div>

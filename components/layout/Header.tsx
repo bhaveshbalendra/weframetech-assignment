@@ -64,7 +64,7 @@ const Header: React.FC = () => {
               </NavButton>
               <NavButton className="bg-[#0093D0] py-[13px] px-[18px] text-white rounded-[6px]">
                 <Image src={cart} width={20} height={20} alt="Cart" />
-                <span className="ml-2">Panier</span>
+                <span className="ml-2 text-[14px]">Panier</span>
               </NavButton>
               <NavButton className="ml-[19px] ">
                 <Image src={avatar} width={44} height={44} alt="User Avatar" />
