@@ -14,6 +14,7 @@ export const Button: React.FC<ButtonProps> = ({
   children,
   ...props
 }) => {
+  // Base styles and dynamic variants & sizes
   const baseStyles =
     "inline-flex items-center justify-center font-medium rounded transition focus:outline-none";
   const variants = {
@@ -26,11 +27,12 @@ export const Button: React.FC<ButtonProps> = ({
     lg: "text-lg px-6 py-3",
     icon: "p-2",
   };
+
+  // Construct the className dynamically
+  const buttonClass = `${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`;
+
   return (
-    <button
-      className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`}
-      {...props}
-    >
+    <button className={buttonClass} {...props}>
       {children}
     </button>
   );

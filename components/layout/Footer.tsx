@@ -28,13 +28,13 @@ const Footer: React.FC = () => {
       <div className="px-4 py-8 md:py-12">
         <div className="flex flex-col md:flex-row justify-between">
           {/* Logo Section */}
-          <div className="flex flex-col md:flex-row md:space-x-6 md:space-y-0 space-y-6 md:items-center">
-            <Link href="/" className="flex items-center space-x-2">
+          <div className="flex flex-col md:flex-row md:space-x-6 space-y-6">
+            <Link href="/" className="flex items-center">
               <Image src={logo} height={65} alt="logo" />
             </Link>
 
             {/* Info Pratiques Section */}
-            <div className="space-y-4">
+            <div>
               <h3 className="text-[18px] font-semibold uppercase tracking-wider">
                 INFOS PRATIQUES
               </h3>
@@ -47,7 +47,7 @@ const Footer: React.FC = () => {
             </div>
 
             {/* Legal Section */}
-            <div className="space-y-4">
+            <div>
               <h3 className="text-[18px] font-semibold uppercase tracking-wider">
                 LEGAL
               </h3>
@@ -60,7 +60,7 @@ const Footer: React.FC = () => {
             </div>
 
             {/* Mon Compte Section */}
-            <div className="space-y-4">
+            <div>
               <h3 className="text-[18px] font-semibold uppercase tracking-wider">
                 MON COMPTE
               </h3>
@@ -74,31 +74,19 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Social Media Section */}
-          <div className="space-y-4 md:mt-0 mt-6 flex flex-col">
+          <div className="mt-6 md:mt-0">
             <h3 className="text-[18px] font-semibold uppercase tracking-wider">
               NOUS SUIVRE
             </h3>
             <div className="flex space-x-4">
-              <Link
-                href="#"
-                className="text-muted-foreground hover:text-primary h-[42px]"
-              >
-                <Image src={twitter} alt="twitter logo" />
-                <span className="sr-only">Twitter</span>
+              <Link href="#" className="hover:text-primary">
+                <Image src={twitter} alt="Twitter" />
               </Link>
-              <Link
-                href="#"
-                className="text-muted-foreground hover:text-primary h-[42px]"
-              >
-                <Image src={instagram} alt="instagram logo" />
-                <span className="sr-only">Instagram</span>
+              <Link href="#" className="hover:text-primary">
+                <Image src={instagram} alt="Instagram" />
               </Link>
-              <Link
-                href="#"
-                className="text-muted-foreground hover:text-primary h-[42px]"
-              >
-                <Image src={linkedin} alt="linkedin logo" />
-                <span className="sr-only">LinkedIn</span>
+              <Link href="#" className="hover:text-primary">
+                <Image src={linkedin} alt="LinkedIn" />
               </Link>
             </div>
           </div>

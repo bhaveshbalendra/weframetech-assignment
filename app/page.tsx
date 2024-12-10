@@ -1,5 +1,5 @@
-import ProductDetailsPage from "@/components/product/ProductDetailSection";
 import React from "react";
+import ProductDetailsPage from "@/components/product/ProductDetailSection";
 import cheese from "@/public/images/product/Location Cheese big picture 1.webp";
 import table from "@/public/images/product/Table ronde 165cm Festi 2.webp";
 import Carousel from "@/components/carousel/Carousel";
@@ -15,6 +15,7 @@ const page: React.FC = () => {
         <span className="font-medium">Home</span>
         <span className="text-[#9c9c9c]"> • Art de la table</span>
       </p>
+
       {/* Product Detail Section */}
       <ProductDetailsPage
         description="Festi vous propose à la location un/une 'Jewel – grand couteau/10pc' pour votre évenement et ce dès 0,35 € / pièce (HTVA). Que ce soit pour votre mariage, une fête d'anniversaire ou du personnel, ce produit a fait l'objet d'une sélection rigoureuse par notre équipe. Il est en location chez nous sous la référence 'VAJGC'. Nous sommes à votre disposition pour que les événements de nos clients, même en last-minute, soient toujours une réussite. Vous pourrez trouver tout une série d'autre produit à louer de ce type dans la catégorie 'Art de la Table'."
@@ -24,21 +25,18 @@ const page: React.FC = () => {
         reference="VAGON5"
         dimensions={{ width: 20, height: 50 }}
         features={[
-          // Highlighted product features
           "Location appareil à raclette - Raclette traditionnelle 1/2 roue",
           "Réglable en hauteur",
           "Appareil à raclette professionnel",
           "Boîtier de chauffe horizontal réglable en hauteur",
         ]}
         specifications={{
-          // Technical specifications of the product
           Voltage: "220V",
           Power: "900W",
         }}
-        mainImage={cheese} // Main product image
-        additionalImages={[table, table, table, table]} // Additional product images
+        mainImage={cheese}
+        additionalImages={[table, table, table, table]}
         accordionItems={[
-          // Expandable sections for more details
           { title: "Livraisons", content: "Information de livraison..." },
           {
             title: "Questions",
